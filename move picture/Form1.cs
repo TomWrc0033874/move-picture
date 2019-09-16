@@ -28,21 +28,25 @@ namespace move_picture
 
 
 
-        private void Button5_Click(object sender, EventArgs e)
+        private async void Button5_Click(object sender, EventArgs e)
         {    if(pictureBox1.Location.X + 5 < ClientRectangle.Width - pictureBox1.Width)
             {
                 pictureBox1.Location = new Point(pictureBox1.Location.X + 5, pictureBox1.Location.Y);
-            }
+                await Task.Delay(500);
+                pictureBox1.Location = new Point(pictureBox1.Location.X - 5, pictureBox1.Location.Y);
+            }   await Task.Delay(500);
         }
 
 
 
 
-        private void Button4_Click(object sender, EventArgs e)
+        private async void Button4_Click(object sender, EventArgs e)
         {
-             if(pictureBox1.Location.X > 0) 
+            if (pictureBox1.Location.X > 0)
             {
-                pictureBox1.Location = new Point(pictureBox1.Location.X - 5, pictureBox1.Location.Y);
+                for (int i = 0; i < 10; i++)
+                    pictureBox1.Location = new Point(pictureBox1.Location.X - 5, pictureBox1.Location.Y);
+                await Task.Delay(100);
             }
         }
 
